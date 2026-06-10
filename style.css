@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --background-primary: #F4F5FB;
+    --background-secondary: #FFF;
+    --color-brand: #CA3884;
+    --color-brand-hover: #A52C6B;
+    --color-danger: #C93847;
+    --content-primary: #080B12;
+    --content-secondary: #374151;
+    --content-tertiary: #9CA3AF;
+    --always-white: #FFF;
+    --border-primary: #D1D5DB;
+    --border-hover: #B9C2D0;
+}
+
+body {
+    font-size: 1.6rem;
+    padding-inline: 3.2rem;
+    background: var(--background-primary);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding-block: 3.2rem 3.8rem;
+}
+
+.adicionar-item {
+    h1 {
+        font-size: 2.4rem;
+        margin-bottom: 4.4rem;
+    }
+
+    input, button {
+        padding: 1.2rem 1.8rem;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 1.2rem;
+        font-size: 1.6rem;
+    }
+
+    input {
+        border: 2px solid var(--border-primary);
+        margin-bottom: 1.6rem;
+        color: var(--content-primary);
+    }
+
+    input::placeholder {
+        color: var(--content-tertiary);
+    }
+
+    input:focus {
+        border-color: var(--color-brand);
+    }
+
+    button {
+        background: var(--color-brand);
+        color: var(--always-white);
+        font-weight: 600;
+    }
+
+    button:hover {
+        background: var(--color-brand-hover);
+        transition: background 0.4s;
+    }
+}
+
+.itens {
+    margin-top: 4rem;
+
+    .item {
+        background: var(--always-white);
+        margin-bottom: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem;
+        align-items: center;
+        border-radius: 1.2rem;
+
+        box-shadow: 0 2px 6px rgba(8, 11, 18, 0.2);
+        line-height: 2.4rem;
+
+        div {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .checkbox-customizada {
+            border: 1px solid var(--border-primary);
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 0.6rem;
+        }
+
+        div:has(input:checked) {
+            .checkbox-customizada {
+                background: var(--color-brand);
+                border-color: var(--color-brand);
+                transition: 0.2s;
+            }
+
+            label {
+                text-decoration: line-through;
+            }
+        }
+
+        input {
+            display: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            img {
+                width: 1.6rem;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+@media(min-width: 630px) {
+    main {
+        max-width: 62.7rem;
+        margin-inline: auto;
+    }
+
+    .adicionar-item div {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 1.6rem;
+
+        input {
+            grid-column: 1 / 8;
+            margin: 0;
+        }
+
+        button {
+            grid-column: 8 / 11;
+            cursor: pointer;
+        }
+    }
+}
